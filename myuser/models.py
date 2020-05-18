@@ -45,9 +45,9 @@ class SiteUser(AbstractBaseUser):
     mobile      = models.CharField(blank=False, max_length=10, validators=[mobile_validator])
     first_name  = models.CharField(blank=False, max_length=50)
     last_name   = models.CharField(blank=False, max_length=50)
-    staff    = models.BooleanField(default=False)
-    admin    = models.BooleanField(default=False)
-    active   = models.BooleanField(default=True)
+    staff       = models.BooleanField(default=False)
+    admin       = models.BooleanField(default=False)
+    active      = models.BooleanField(default=True)
 
     objects = SiteUserManager()
 
