@@ -39,6 +39,8 @@ class SiteUserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
+    def full_name(self):
+        return "{} {}".format(self.first_name, self.first_name)
 
 class SiteUser(AbstractBaseUser):
     email       = models.EmailField(max_length=85, unique=True)
@@ -56,6 +58,9 @@ class SiteUser(AbstractBaseUser):
 
     def __str__(self):
         return "{}    {} {}".format(self.email, self.first_name, self.last_name)
+
+    def full_name(self):
+        return "{} {}".format(self.first_name, self.last_name)        
 
     def has_perm(self, perm, obj=None):
         return True
